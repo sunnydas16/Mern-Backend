@@ -1,0 +1,8 @@
+npm init -y
+
+npx nodemon app.js    --> use it directly no need to install
+
+npm i express
+
+npm i ejs             --> app.set("view engine",'ejs')  after make folder as ( views ) in this make index.ejs
+
