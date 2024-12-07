@@ -1,0 +1,50 @@
+CRUD operations
+
+//to find all user in the database
+
+app.get('/get-user', (req,res) => {
+    userModel.find().then((user) =>{
+        res.send(user)
+    } )
+})
+
+//to find user with some condition
+
+app.get('/get-user', (req,res) => {
+    userModel.find({
+        username: 'a'
+    }).then((user) =>{
+        res.send(user)
+    } )
+})
+
+//to find only one user in many user
+
+app.get('/get-user', (req,res) => {
+    userModel.findOne({
+        username: 'a'
+    }).then((user) => {
+        res.send(user)
+    })
+})
+
+//TO UPDATE THE USER
+
+app.get('/update-user', async (req,res) => {
+    await userModel.findOneAndUpdate({
+        username: 'a'
+    },{
+        email: "atz@gmail.com"
+    })
+    res.send("user Updated")
+})
+
+//TO DELETE THE USER
+
+app.get('/delete-user', async (req,res) => {
+    await userModel.findOneAndDelete({
+        username: 'q'
+    })
+    res.send('user Deleted')
+})
+
